@@ -5,7 +5,8 @@
   "description": "[![Actions Status](https://github.com/BopoHaAnna/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/BopoHaAnna/frontend-project-44/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "author": "AY",
   "license": "ISC",
@@ -14,5 +15,10 @@
   },
   "dependencies": {
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
   }
 }
