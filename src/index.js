@@ -17,7 +17,7 @@ export default function playBrainEven() {
       console.log('Correct!');
       correctCount += 1; // Увеличиваем счетчик правильных ответов
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${name}!`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
       break; // Прерываем цикл при неверном ответе
     }
   }
