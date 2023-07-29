@@ -20,7 +20,8 @@ export const playGame = (gameFunction, name) => {
   let correctCount = 0;
 
   for (let i = 0; i < maxRounds; i += 1) {
-    const correctAnswer = gameFunction(); // Запускаем игру и получаем правильный ответ
+    const { questionText, correctAnswer } = gameFunction();
+    console.log(`Question: ${questionText}`); // Выводим текст вопроса
     const userAnswer = readlineSync.question('Your answer: '); // Получаем ответ пользователя
     const isWin = checkUserAnswer(correctAnswer, userAnswer); // Проверяем ответ пользователя
     if (isWin) {

@@ -18,8 +18,7 @@ export default function brainCalc() {
   const num2 = getRandomNumber(1, 10);
   const operators = ['+', '-', '*'];
   const operator = operators[getRandomNumber(0, operators.length - 1)];
-  const expression = `${num1} ${operator} ${num2}`; // формула для вопроса
+  const questionText = `${num1} ${operator} ${num2}`; // формула для вопроса
   const correctAnswer = String(performOperation(num1, num2, operator));
-  console.log(`Question: ${expression}`); // задаем вопрос
-  return correctAnswer; // 'число'
+  return { questionText, correctAnswer }; // 'число'
 }
