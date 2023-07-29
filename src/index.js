@@ -1,28 +1,38 @@
 import readlineSync from 'readline-sync';
-import greetUser from './cli.js';
 
-const isEven = (number) => number % 2 === 0;
-export default function playBrainEven() {
-  console.log('Welcome to the Brain Games!');
-  const name = greetUser();
-  console.log('Answer "yes" if the number is even, otherwise answer "no"');
+export const getRandomNumber = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
+
+export const checkUserAnswer = (correctAnswer, userAnswer) => {
+  // Проверка ответа пользователя и вывод сообщения о результате
+  if (correctAnswer === userAnswer) {
+    console.log('Correct!');
+    return true;
+  }
+  console.log(
+    `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`
+  );
+  return false;
+};
+
+export const playGame = (gameFunction, name) => {
   const maxRounds = 3;
-  let correctCount = 0; // Переменная для подсчета правильных ответов
+  let correctCount = 0;
+
   for (let i = 0; i < maxRounds; i += 1) {
-    const randomNumber = Math.floor(Math.random() * 100); // рандомное число
-    const correctAnswer = isEven(randomNumber) ? 'yes' : 'no'; // правильный ответ
-    console.log(`Question: ${randomNumber}`); // задаем вопрос
-    const userAnswer = readlineSync.question('Your answer: '); // ответ пользователя
-    if (correctAnswer === userAnswer) {
-      console.log('Correct!');
+    const correctAnswer = gameFunction(); // Запускаем игру и получаем правильный ответ
+    const userAnswer = readlineSync.question('Your answer: '); // Получаем ответ пользователя
+    const isWin = checkUserAnswer(correctAnswer, userAnswer); // Проверяем ответ пользователя
+    if (isWin) {
       correctCount += 1; // Увеличиваем счетчик правильных ответов
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
-      break; // Прерываем цикл при неверном ответе
+      break; // Прерываем цикл, если пользователь дал неправильный ответ
     }
   }
 
   if (correctCount === maxRounds) {
     console.log(`Congratulations, ${name}!`);
+  } else {
+    console.log(`Let's try again, ${name}!`);
   }
-}
+};

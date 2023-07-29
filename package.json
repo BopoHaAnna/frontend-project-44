@@ -12,9 +12,11 @@
   "license": "ISC",
   "bin": {
     "brain-games": "bin/brain-games.js",
+    "brain-calc": "bin/brain-calc.js",
     "brain-even": "bin/brain-even.js"
   },
   "dependencies": {
+    "brain-even": "^0.1.12",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
