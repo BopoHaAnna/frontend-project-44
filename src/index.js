@@ -1,7 +1,6 @@
 import readlineSync from 'readline-sync';
 
-export const getRandomNumber = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
+export const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 export const checkUserAnswer = (correctAnswer, userAnswer) => {
   // Проверка ответа пользователя и вывод сообщения о результате
@@ -9,9 +8,7 @@ export const checkUserAnswer = (correctAnswer, userAnswer) => {
     console.log('Correct!');
     return true;
   }
-  console.log(
-    `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`
-  );
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`);
   return false;
 };
 
